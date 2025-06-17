@@ -1,6 +1,6 @@
 -- Change to values corresponding to your setup
-local WingClip = 6
-local AutoShot = 9
+local WingClip = 47
+local AutoShot = 48
 
 function Egnar_OnLoad()
   Egnar_Frame:Hide()
@@ -35,22 +35,22 @@ end
 
 function Egnar_OnUpdate()
   if IsActionInRange(WingClip) == 1 then
-    FontString1:SetText("Melee")
-    SetColor(unpack({0, 1, 0, 0.7}))
+    FontString1:SetText("MELEE")
+    SetColor(unpack({0.9, 0.9, 0, 1})) -- YELLOW COLOR 
   elseif IsActionInRange(AutoShot) == 1 then
     if CheckInteractDistance("target", 4) then
-      FontString1:SetText("In Range")
-      SetColor(unpack({0, 0.5, 1, 0.7}))
+      FontString1:SetText("IN RANGE")
+      SetColor(unpack({0.6, 1, 0.5, 1})) -- GREEN COLOR
     else
-      FontString1:SetText("Long Range")
-      SetColor(unpack({0, 0, 1, 0.7}))
+      FontString1:SetText("LONG RANGE")
+      SetColor(unpack({0.6, 1, 0.5, 1})) -- GREEN COLOR
     end
   elseif CheckInteractDistance("target", 4) then
-    FontString1:SetText("Dead Zone")
-    SetColor(unpack({1, 0.5, 0, 0.7}))
+    FontString1:SetText("DEAD ZONE")
+    SetColor(unpack({0.9, 0, 0.1, 1})) -- RED COLOR
   else
-    FontString1:SetText("Out of Range")
-    SetColor(unpack({1, 0, 0, 0.7}))
+    FontString1:SetText("OUT OF RANGE")
+    SetColor(unpack({0.9, 0, 0.1, 1})) -- RED COLOR
   end
 end
 
